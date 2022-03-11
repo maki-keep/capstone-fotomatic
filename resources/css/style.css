@@ -367,12 +367,18 @@ header .mobile {
   background-color: #f3f3f3;
 }
 
-#quotes-section content {
+#quotes-section .content {
   padding: 5rem 0;
 }
 
-#quotes-section quote {
+#quotes-section blockquote {
+  max-width: 65%;
   padding-right: 1.875rem;
+
+  display: inline-block;
+}
+
+#quotes-section blockquote p {
   font-family: "Palatino", serif;
   font-size: 1.875rem;
   line-height: 1.1;
@@ -380,23 +386,35 @@ header .mobile {
   color: #4a4a4a;
 }
 
-#quotes-section quote-citation {
+#quotes-section blockquote p::before {
+  content: "\201C";
+}
+
+#quotes-section blockquote p::after {
+  content: "\201D";
+}
+
+#quotes-section .quote-citation {
   height: 1.875rem;
 }
 
-@media only screen and (max-width: 760px) {
-  #quotes-section content {
+@media only screen and (max-width: 450px) {
+  #quotes-section .content {
     padding: 1.875rem .625rem;
   }
 
-  #quotes-section quote {
+  #quotes-section blockquote {
+    padding-right: 0;
+    padding-bottom: 1rem;
+  }
+
+  #quotes-section blockquote p {
     font-size: 1.5rem;
     line-height: 1.4;
   }
 
-  #quotes-section quote-citation {
+  #quotes-section .quote-citation {
     display: block;
-    padding-top: 1rem;
     margin: auto;
   }
 }
@@ -416,10 +434,4 @@ footer .content {
 
 footer .copyright {
   flex-grow: 1;
-}
-
-@media only screen and (min-width: 760px) {
-  footer .content {
-    font-size: .625rem;
-  }
 }
